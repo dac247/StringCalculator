@@ -19,10 +19,23 @@ namespace StringCalculator
             separatorList.Add(",");
             separatorList.Add("\n");
 
-            string[] test = numbers.Split(separatorList.ToArray(), StringSplitOptions.RemoveEmptyEntries);
+            List<string> splitString = new List<string>();
+            if (numbers.Substring(0,2) == "//")
+            {
+                int k = numbers.IndexOf('\n');
+
+                separatorList.Add(numbers.Substring(2, k - 2));
+
+                string cutnumbers = numbers.Substring(k, numbers.Length - k); 
+                splitString = cutnumbers.Split(separatorList.ToArray(), StringSplitOptions.RemoveEmptyEntries).ToList();
+            }
+            else
+            {
+                splitString = numbers.Split(separatorList.ToArray(), StringSplitOptions.RemoveEmptyEntries).ToList();
+            }
 
             int sum = 0;
-            foreach(string s in test)
+            foreach(string s in splitString)
             {
                 sum += Convert.ToInt32(s);
             }
