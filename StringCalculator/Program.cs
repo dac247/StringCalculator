@@ -15,7 +15,11 @@ namespace StringCalculator
                 return 0;
             }
 
-            string[] test = numbers.Split(',');
+            List<string> separatorList = new List<string>();
+            separatorList.Add(",");
+            separatorList.Add("\n");
+
+            string[] test = numbers.Split(separatorList.ToArray(), StringSplitOptions.RemoveEmptyEntries);
 
             int sum = 0;
             foreach(string s in test)
