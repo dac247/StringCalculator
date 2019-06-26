@@ -6,9 +6,9 @@ using System.Threading.Tasks;
 
 namespace StringCalculator
 {
-    class Program
+    public class Program
     {
-        static int Add(string numbers)
+        public static int Add(string numbers)
         {
             // if empty string, we done
             if (numbers == "")
